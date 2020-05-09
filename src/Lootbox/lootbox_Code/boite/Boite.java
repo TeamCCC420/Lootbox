@@ -101,10 +101,6 @@ public class Boite{
         return gain;
     }
 
-    public void setGain(String gain) {
-        this.gain = gain;
-    }
-
     public Compteur getCompt(){
         return compt;
     }

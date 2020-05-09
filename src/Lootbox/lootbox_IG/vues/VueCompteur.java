@@ -20,6 +20,8 @@ public class VueCompteur extends VBox implements Vue {
     public VueCompteur(Monde m, Boite b){
         this.m = m;
         this.b = b;
+        long max = 1;
+        this.setStyle("-fx-border-color: #0F0F0F; -fx-border-width: 2pt;");
         c = b.getCompt();
         code = new String[5];
         code[0] = "Commun";
@@ -30,6 +32,7 @@ public class VueCompteur extends VBox implements Vue {
         valeur = new int[5];
         for(int i=0; i<5; i++){
             valeur[i] = c.getValeur(code[i]);
+            max += valeur[i];
             System.out.println(code[i] +" --> "+valeur[i]);
         }
         lables = new Label[5];
@@ -37,19 +40,20 @@ public class VueCompteur extends VBox implements Vue {
             System.out.println(code[i]);
             System.out.println(valeur[i]);
             lables[i] = new Label();
-            lables[i].setText(new String(code[i] +" --> "+valeur[i]));
+            lables[i].setText(new String(code[i] +" --> "+valeur[i]+" ==> "));
             super.getChildren().add(lables[i]);
         }
     }
 
     @Override
     public void notif() {
+        long max=1;
         for(int i=0; i<5; i++){
             valeur[i] = c.getValeur(code[i]);
+            max += valeur[i];
         }
         for(int i=0; i<5; i++){
-            lables[i].setText(code[i] +" --> "+valeur[i]);
-            System.out.println(lables[i].toString());
+            lables[i].setText(new String(code[i] +" --> "+valeur[i]+" ==> "));
         }
     }
 }

@@ -4,8 +4,9 @@ import Lootbox.lootbox_Code.boite.Boite;
 import Lootbox.lootbox_Code.general.Monde;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
-public class EcouteurOuvrir implements EventHandler<ActionEvent> {
+public class EcouteurOuvrir implements EventHandler<MouseEvent> {
 
     private Monde m;
     private Boite b;
@@ -18,7 +19,7 @@ public class EcouteurOuvrir implements EventHandler<ActionEvent> {
     }
 
     @Override
-    public void handle(ActionEvent actionEvent) {
+    public void handle(MouseEvent mouseEvent) {
         for(int i=0; i<iteration;i++) {
             b.gift();
         }
