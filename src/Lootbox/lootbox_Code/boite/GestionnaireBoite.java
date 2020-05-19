@@ -31,4 +31,9 @@ public class GestionnaireBoite {
         return s.toString();
     }
 
+    public void reset() {
+        for(Boite b : boites){
+            b.reset();
+        }
+    }
 }

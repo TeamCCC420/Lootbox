@@ -1,0 +1,149 @@
+#Argent {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#Argent:hover {
+   -fx-background-color:
+           #000000,
+           linear-gradient(#9edcfa, #4f6baf),
+           linear-gradient(#628ad7, #465e95),
+           linear-gradient(#597ccb, #425788);
+}
+#Argent:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+#Argent Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+#Convertir {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            #000000,
+            linear-gradient(#bcaa6a, #a78720),
+            linear-gradient(#d9d2b6 0%, #d4c59c 20%, #c6a73d 80%, #c2a025 100%),
+            linear-gradient(#d6cb9e, #c6a32d);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#Convertir:hover {
+    -fx-background-color:
+            #000000,
+            linear-gradient(#dcca8a, #c7a740),
+            linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+            linear-gradient(#f6ebbe, #e6c34d);
+}
+#Convertir:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+#Convertir Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}
+
+///////////////////////////////////////////////////////////////////////
+
+ #Inventaire {
+     -fx-padding: 8 15 15 15;
+     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+     -fx-background-radius: 8;
+     -fx-background-color:
+             #000000,
+             linear-gradient(#ff5400, #be1d00);
+     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+     -fx-font-weight: bold;
+     -fx-font-size: 1.1em;
+ }
+ #Inventaire:hover {
+     -fx-background-color:
+         #000000,
+         linear-gradient(#ff5400, #de3d20);
+ }
+ #Inventaire:pressed {
+     -fx-padding: 10 15 13 15;
+     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+ }
+ #Inventaire Text {
+     -fx-fill: white;
+     -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+ }
+
+ ///////////////////////////////////////////////////////////////////////
+
+ #Jouer {
+     -fx-padding: 8 15 15 15;
+     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+     -fx-background-radius: 8;
+     -fx-background-color: #000000,
+            linear-gradient(#11bb11, #00aa00);
+     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+     -fx-font-weight: bold;
+     -fx-font-size: 1.1em;
+ }
+ #Jouer:hover {
+     -fx-background-color: #000000,
+              linear-gradient(#33dd33, #22cc22);
+ }
+ #Jouer:pressed {
+     -fx-padding: 10 15 13 15;
+     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+ }
+ #Jouer Text {
+     -fx-fill: white;
+     -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+ }
+
+///////////////////////////////////////////////////////////////////////
+
+#Label {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+///////////////////////////////////////////////////////////////////////
+
+#ButtonPayer {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#ButtonPayer:hover {
+   -fx-background-color:
+           #000000,
+           linear-gradient(#9edcfa, #4f6baf),
+           linear-gradient(#628ad7, #465e95),
+           linear-gradient(#597ccb, #425788);
+}
+#ButtonPayer:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+#ButtonPayer Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}

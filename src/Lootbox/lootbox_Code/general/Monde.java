@@ -1,10 +1,11 @@
 package Lootbox.lootbox_Code.general;
 
 import Lootbox.lootbox_Code.boite.*;
+import Lootbox.lootbox_Code.jeu.GestionnaireCarte;
+import Lootbox.lootbox_Code.outils.Semaphore;
+import Lootbox.lootbox_IG.ecouteurs.*;
 import Lootbox.lootbox_IG.vues.Vue;
-import Lootbox.lootbox_IG.vues.VueCompteur;
-import Lootbox.lootbox_IG.vues.VueOuverture;
-import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,11 @@ public class Monde{
 
     private GestionnaireBoite box;
     private ArrayList<Vue> vues;
+    private PorteFeuille pf;
+    private GainIcone gi;
+    private Inventaire inv;
+    private boolean remise;
+    private GestionnaireCarte cartes;
 
     /**
      * Constucteur du Monde
@@ -25,6 +31,11 @@ public class Monde{
         box.ajouter(new MetalBoite());
         box.ajouter(new DiamantBoite());
         vues = new ArrayList<>();
+        pf = new PorteFeuille();
+        gi = new GainIcone();
+        inv = new Inventaire();
+        remise = true;
+        cartes = new GestionnaireCarte();
     }
 
     /**
@@ -63,6 +74,131 @@ public class Monde{
         return box;
     }
 
+    public PorteFeuille getPf(){
+        return pf;
+    }
+
+    public GainIcone getGi(){ return gi;}
+
+    public Inventaire getInv(){ return inv;}
+
+    public boolean getRemise() {
+        return remise;
+    }
+
+    public void setRemise(boolean n) {
+        remise = n;
+    }
+
+    public GestionnaireCarte getCartes(){
+        return cartes;
+    }
+
     public void reset() {
+        this.inv.reset();
+        this.gi.reset();
+        this.box.reset();
+        System.out.println(box.toString());
+    }
+
+    public boolean verifBois(){
+        int c=0, m=0, r=0, e=0, l=0;
+        for(String type : this.getInv().getType()){
+            switch(type) {
+                case "Commun":
+                    c++;
+                    break;
+                case "Moyen":
+                    m++;
+                    break;
+                case "Rare":
+                    r++;
+                    break;
+                case "Epic":
+                    e++;
+                    break;
+                case "Legendaire":
+                    l++;
+                    break;
+            }
+        }
+        if(this.getGi().getCommun().length == c){
+            if(this.getGi().getMoyen().length == m){
+                if(this.getGi().getRare().length == r){
+                    if(this.getGi().getEpic().length == e){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean verifMetal(){
+        int c=0, m=0, r=0, e=0, l=0;
+        for(String type : this.getInv().getType()){
+            switch(type) {
+                case "Commun":
+                    c++;
+                    break;
+                case "Moyen":
+                    m++;
+                    break;
+                case "Rare":
+                    r++;
+                    break;
+                case "Epic":
+                    e++;
+                    break;
+                case "Legendaire":
+                    l++;
+                    break;
+            }
+        }
+        if(this.getGi().getCommun().length == c){
+            if(this.getGi().getMoyen().length == m){
+                if(this.getGi().getRare().length == r){
+                    if(this.getGi().getEpic().length == e){
+                        if(this.getGi().getLegendaire().length == l){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean verifDiamant(){
+        int c=0, m=0, r=0, e=0, l=0;
+        for(String type : this.getInv().getType()){
+            switch(type) {
+                case "Commun":
+                    c++;
+                    break;
+                case "Moyen":
+                    m++;
+                    break;
+                case "Rare":
+                    r++;
+                    break;
+                case "Epic":
+                    e++;
+                    break;
+                case "Legendaire":
+                    l++;
+                    break;
+            }
+        }
+        if(this.getGi().getMoyen().length == m){
+            if(this.getGi().getRare().length == r){
+                if(this.getGi().getEpic().length == e){
+                    if(this.getGi().getLegendaire().length == l){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

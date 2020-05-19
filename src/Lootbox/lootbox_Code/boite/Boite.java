@@ -1,5 +1,6 @@
 package Lootbox.lootbox_Code.boite;
 
+import Lootbox.lootbox_Code.outils.Prix;
 import Lootbox.lootbox_Code.outils.Probabilites;
 import com.sun.jdi.event.StepEvent;
 
@@ -13,17 +14,21 @@ public class Boite{
     private String id;
     private String gain;
     private Compteur compt;
+    private int prixMonnaie;
 
     public Boite(int[] proba, String lequel){
         switch(lequel){
             case "Commun":
                 max = Probabilites.getInstance().probaCommunMax();
+                prixMonnaie = Prix.getInstance().prixBoiteBois();
                 break;
             case "Rare":
                 max = Probabilites.getInstance().probaRareMax();
+                prixMonnaie = Prix.getInstance().prixBoiteMetal();
                 break;
             case "Legendaire":
                 max = Probabilites.getInstance().probaLegendaireMax();
+                prixMonnaie = Prix.getInstance().prixBoiteDiamant();
                 break;
         }
         System.out.println(lequel + max);
@@ -36,6 +41,9 @@ public class Boite{
         compt = new Compteur();
     }
 
+    public Boite(){
+        compt = new Compteur();
+    }
     private int getGift(){
         Random random = new Random();
         int alea = random.nextInt(max);
@@ -101,8 +109,16 @@ public class Boite{
         return gain;
     }
 
+    public void setCompt(Compteur c){
+        compt = c;
+    }
+
     public Compteur getCompt(){
         return compt;
+    }
+
+    public int getPrixMonnaie() {
+        return prixMonnaie;
     }
 
     public String toString(){
@@ -115,4 +131,8 @@ public class Boite{
         return s.toString();
     }
 
+    public void reset() {
+        gain = "Vide";
+        compt = new Compteur();
+    }
 }

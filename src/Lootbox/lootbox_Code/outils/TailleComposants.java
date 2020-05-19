@@ -36,6 +36,23 @@ public class TailleComposants {
      * @return double Taille de l'icone
      */
     public double tailleIcon() {
-        return 15;
+        return 25;
     }
+
+    /**
+     * Getter sur la largeur des coffres de l'application
+     * @return int Largeur de l'écran
+     */
+    public int getLargeurCoffre(){
+        return 180;
+    }
+
+    /**
+     * Getter sur la hauteur des coffres de l'application
+     * @return int Largeur de l'écran
+     */
+    public int gethauteurCoffre(){
+        return 180;
+    }
+
 }

@@ -2,21 +2,17 @@ package Lootbox;
 
 import Lootbox.lootbox_Code.general.Monde;
 import Lootbox.lootbox_Code.outils.TailleComposants;
-import Lootbox.lootbox_IG.vues.Vue;
-import Lootbox.lootbox_IG.vues.VueMenuBar;
-import Lootbox.lootbox_IG.vues.VueMonde;
-import Lootbox.lootbox_IG.vues.VueOuverture;
+import Lootbox.lootbox_IG.vues.autresPages.VueJeu;
+import Lootbox.lootbox_IG.vues.droite.VueArgent;
+import Lootbox.lootbox_IG.vues.haut.VueMenuBar;
+import Lootbox.lootbox_IG.vues.centre.VueMonde;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -24,18 +20,34 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = new BorderPane();
-        primaryStage.setTitle("Système de lootbox : par PETIT Brian et DUCHESNE Leila");
-        primaryStage.setScene(new Scene(root, TailleComposants.getInstance().getLargeurEcran(), TailleComposants.getInstance().gethauteurEcran()));
-        primaryStage.show();
+        TabPane centre = new TabPane();
+        Tab box = new Tab("Lootbox ");
+        box.setStyle("-fx-background-color: #ccffcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        Tab jeu = new Tab("Jouer et gagner ! ");
+        jeu.setStyle("-fx-background-color: #ffffcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        centre.getTabs().addAll(box,jeu);
+        String style = this.getClass().getResource("ressources/css/style.css").toExternalForm();
         Monde m = new Monde();
         Label l = new Label(m.toString());
-        root.getChildren().add(l);
-        root.setCenter(new VueMonde(m));
+        root.getStylesheets().addAll(style);
+        box.setContent(new VueMonde(m));
+        VueJeu vueJeu = new VueJeu(m);
+        m.getVues().add(vueJeu);
+        jeu.setContent(vueJeu);
+        root.setCenter(centre);
         root.setTop(new VueMenuBar(m));
+        VueArgent vueA = new VueArgent(m);
+        m.getVues().add(vueA);
+        root.setRight(vueA);
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("Système de lootbox : par PETIT Brian et DUCHESNE Leila");
+        primaryStage.setScene(new Scene(root, (TailleComposants.getInstance().getLargeurEcran()-25), TailleComposants.getInstance().gethauteurEcran()));
+        primaryStage.show();
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
     }
-
 
     public static void main(String[] args) {
         launch(args);
     }
+
 }
