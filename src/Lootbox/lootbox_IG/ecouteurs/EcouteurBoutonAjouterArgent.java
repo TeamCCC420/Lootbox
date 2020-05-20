@@ -58,6 +58,7 @@ public class EcouteurBoutonAjouterArgent implements EventHandler<ActionEvent> {
         dialogStage.setScene(new Scene(vboxPrincipal, TailleComposants.getInstance().getLargeurEcran()/1.5, TailleComposants.getInstance().gethauteurEcran()/1.5));
         dialogStage.setTitle("Ajouter de l'argent : par PETIT Brian et DUCHESNE Leila");
         dialogStage.show();
+        dialogStage.setResizable(false);
         dialogStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
         String url = new String("fond/argent.jpg");
         vboxPrincipal.setStyle("-fx-background-image: url(" + url + "); -fx-background-size: "+ TailleComposants.getInstance().getLargeurEcran()/1.5+" "+ TailleComposants.getInstance().gethauteurEcran()/1.5 +";");

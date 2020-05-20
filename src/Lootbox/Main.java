@@ -21,9 +21,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = new BorderPane();
         TabPane centre = new TabPane();
-        Tab box = new Tab("Lootbox ");
+        Tab box = new Tab("                    Gagnez de la nourriture avec notre Lootbox !                         ");
+        box.setClosable(false);
         box.setStyle("-fx-background-color: #ccffcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab jeu = new Tab("Jouer et gagner ! ");
+        Tab jeu = new Tab("                    Jouez et gagnez des coins au jeu des cartes !                     ");
+        jeu.setClosable(false);
         jeu.setStyle("-fx-background-color: #ffffcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         centre.getTabs().addAll(box,jeu);
         String style = this.getClass().getResource("ressources/css/style.css").toExternalForm();

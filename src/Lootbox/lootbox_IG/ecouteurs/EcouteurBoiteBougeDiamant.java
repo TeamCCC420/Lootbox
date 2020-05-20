@@ -50,6 +50,7 @@ public class EcouteurBoiteBougeDiamant implements EventHandler<MouseEvent> {
             dialogStage.setScene(new Scene(pane, TailleComposants.getInstance().getLargeurEcran()/1.2, TailleComposants.getInstance().gethauteurEcran()/1.2));
             dialogStage.setTitle("Gains");
             dialogStage.show();
+            dialogStage.setResizable(false);
             for (int i = 0; i < iteration; i++) {
                 b.gift();
             }
@@ -62,12 +63,14 @@ public class EcouteurBoiteBougeDiamant implements EventHandler<MouseEvent> {
                     dialogStage.close();
                 }
             });
+            pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    dialogStage.close();
+                }
+            });
             ImageView i = new ImageView();
-            if (m.getRemise()) {
-                i = new ImageView(aleaGift());
-            } else {
-                i = new ImageView(aleaGift2());
-            }
+            i = new ImageView(aleaGift());
             Label type = new Label(b.getGain());
             switch(b.getGain()){
                 case "Commun":
@@ -109,41 +112,6 @@ public class EcouteurBoiteBougeDiamant implements EventHandler<MouseEvent> {
             a.show();
         }
         m.update();
-    }
-
-    private String aleaGift2() {
-        int max=0, alea=0;
-        Random rand = new Random();
-        String s = new String();
-        switch(b.getGain()){
-            case "Commun":
-                max=m.getGi().getCommun().length;
-                alea = rand.nextInt(max-1);
-                s = m.getGi().getCommun()[alea];
-                break;
-            case "Moyen":
-                max=m.getGi().getMoyen().length;
-                alea = rand.nextInt(max);
-                s = m.getGi().getMoyen()[alea];
-                break;
-            case "Rare":
-                max=m.getGi().getRare().length;
-                alea = rand.nextInt(max);
-                s = m.getGi().getRare()[alea];
-                break;
-            case "Epic":
-                max=m.getGi().getEpic().length;
-                alea = rand.nextInt(max);
-                s = m.getGi().getEpic()[alea];
-                break;
-            case "Legendaire":
-                max=m.getGi().getLegendaire().length;
-                alea = rand.nextInt(max);
-                s = m.getGi().getLegendaire()[alea];
-                break;
-        }
-        m.getInv().ajout(s,b.getGain());
-        return s;
     }
 
     private String aleaGift() {

@@ -50,6 +50,7 @@ public class EcouteurBoiteBougeBois implements EventHandler<MouseEvent> {
             dialogStage.setScene(new Scene(pane, TailleComposants.getInstance().getLargeurEcran()/1.2, TailleComposants.getInstance().gethauteurEcran()/1.2));
             dialogStage.setTitle("Gains");
             dialogStage.show();
+            dialogStage.setResizable(false);
             for (int i = 0; i < iteration; i++) {
                 b.gift();
             }
@@ -62,12 +63,14 @@ public class EcouteurBoiteBougeBois implements EventHandler<MouseEvent> {
                     dialogStage.close();
                 }
             });
+            pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    dialogStage.close();
+                }
+            });
             ImageView i;
-            if(m.getRemise()) {
-                i = new ImageView(aleaGift());
-            }else{
-                i = new ImageView(aleaGift2());
-            }
+            i = new ImageView(aleaGift());
             Label type = new Label(b.getGain());
             switch(b.getGain()){
                 case "Commun":

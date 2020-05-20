@@ -31,15 +31,20 @@ public class EcouteurRenseignements implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         TabPane tabPane = new TabPane();
-        Tab page1 = new Tab("Page 1 - Comprehension");
+        Tab page1 = new Tab("       Page 1 - Comprehension      ");
+        page1.setClosable(false);
         page1.setStyle("-fx-background-color: #ffffCC; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab page2 = new Tab("Page 2 - Proposition");
+        Tab page2 = new Tab("       Page 2 - Proposition       ");
+        page2.setClosable(false);
         page2.setStyle("-fx-background-color: #ffddcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab page3 = new Tab("Page 3 - Verification");
+        Tab page3 = new Tab("       Page 3 - Verification      ");
+        page3.setClosable(false);
         page3.setStyle("-fx-background-color: #ffbbcc; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab page4 = new Tab("Page 4 - Economiser");
+        Tab page4 = new Tab("       Page 4 - Economiser       ");
+        page4.setClosable(false);
         page4.setStyle("-fx-background-color: #ffaaee; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab page5 = new Tab("Page 5 - Autre option ");
+        Tab page5 = new Tab("       Page 5 - Autre option      ");
+        page5.setClosable(false);
         page5.setStyle("-fx-background-color: #ccaaff; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         tabPane.getTabs().addAll(page1,page2,page3, page4, page5);
         VBox vboxPrincipal = new VBox();
@@ -136,6 +141,7 @@ public class EcouteurRenseignements implements EventHandler<ActionEvent> {
         dialogStage.setScene(new Scene(tabPane, TailleComposants.getInstance().getLargeurEcran()/1.1, TailleComposants.getInstance().gethauteurEcran()/1.1));
         dialogStage.setTitle("Compte - Rendu : par PETIT Brian et DUCHESNE Leila");
         dialogStage.show();
+        dialogStage.setResizable(false);
         dialogStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
     }
 
@@ -157,15 +163,16 @@ public class EcouteurRenseignements implements EventHandler<ActionEvent> {
         s.append("de hasard controlé : la présence de remise, les intervalles hétérogènes de gains controlés et l'aléatoire total\n");
         s.append("sont de parfaites ficelles pour les dépenses excessives.\n");
         s.append("\n");
-        s.append("Au vue des résultats, on peut conclure les probabilités suivantes : \n");
+        s.append("Au vue des résultats, la loi des grands nombres (dont je vous passe les caluls) nous permet de supposer\n");
+        s.append("les probabilités suivantes : \n");
         s.append("Bois : Commun --> 80% ; Moyen --> 16% ; Rare --> 3% ; Epic --> 1%>.>0% ; Legendaire --> 0%\n");
         s.append("Metal : Commun --> 50% ; Moyen --> 25% ; Rare --> 12%>.>11% ; Epic --> 10% ; Legendaire --> 3%\n");
         s.append("Diamant : Commun --> 0% ; Moyen --> 40% ; Rare --> 28% ; Epic --> 22% ; Legendaire --> 10%\n");
         s.append("\n");
-        s.append("On peut remarquer que la probabilté d'avoir un légendaire est de faible, en plus de ça, avec remise\n");
+        s.append("On peut remarquer que la probabilté d'obtenir un légendaire est faible, en plus de ça, avec remise\n");
         s.append("il est possible que malgré toutes les tentatives, vous n'ayez jamais tous les légendaires, voir même aucun !\n");
         s.append("Ce système est donc injuste pour ses probabilités trop faibles et secrètes, et pour sa remise qui pousse\n");
-        s.append("l'intervalle de gain vers l'infini !\n");
+        s.append("l'intervalle de gains vers l'infini !\n");
         s.append("\n");
         s.append("Améliorons ce système tout d'abord, en modifiant le système pour qu'il y ait de la remise\n");
         s.append("Si vous êtes prêt, lisez la page suivante !\n");
@@ -176,33 +183,31 @@ public class EcouteurRenseignements implements EventHandler<ActionEvent> {
         StringBuilder s = new StringBuilder();
         s.append("Si vous en êtes là, c'est que vous avez compris le fonctionnement classique d'une lootbox !\n");
         s.append("Maintentant, nous préparons l'étape 2 : le tirage SANS REMISE; Pour cela, au sein du programme\n");
-        s.append("nous devons changer certaines fonctions, rajouter des pramaètres, complexifier le programme en somme\n");
+        s.append("nous devons changer certaines fonctions, rajouter des paramètres, complexifier le programme en somme\n");
         s.append("En évocant cela, on peut se demander si l'injustice de ce programme est-il vraiment dû à un choix marqueting\n");
         s.append("ou a une simple 'flemme' démocratisée...\n");
         s.append("\n");
-        s.append("Si vous êtes vraiment pret, lisez la page suivante !\n");
+        s.append("Si vous êtes pret, lisez la page suivante !\n");
         return s.toString();
     }
 
     public String texte4(){
         StringBuilder s = new StringBuilder();
-        s.append("Vous venez d'essayer les boites sans remise, si vous ne l'avez toujours pas fait, essayez !\n");
-        s.append("Avez vous remarqué la fréquence d'apparition plus élevée des icones plus rares ?\n");
         s.append("Maintentant, nous allons essayer de comprendre les probabilités de cette solution :\n");
-        s.append("Pour éviter toutes fausses probabilités, et pouvoir obtenir les résultats les plus réalistes dans un intervale controlée\n");
+        s.append("Pour éviter toutes fausses probabilités, et pouvoir obtenir les résultats les plus réalistes dans un intervale controlé\n");
         s.append("nous allons faire les calculs sur 3 cas différents :\n");
         return s.toString();
     }
 
     private String texte5() {
         StringBuilder s = new StringBuilder();
-        s.append("Tentons de comprendre : Nous savons dorénavant le nombre totale de gains dans chaque catégorie, le nombre excessif de lancés sur une base de données\n");
+        s.append("Tentons de comprendre : Nous connaissons dorénavant le nombre total de gains dans chaque catégorie, le nombre excessif de lancés sur une base de données\n");
         s.append("faible entraine bien évidemment la complétion de l'inventaire, tous les gains sont ainsi obtenues, ce qui nous permet\n");
         s.append("de compter le nombre d'éléments et d'obtenir la véritable intervale de chaque evenement !\n");
         s.append("Les probabilités sont simples quand ce n'est qu'addition et pourcentage !\n");
         s.append("\n");
-        s.append("Ce système est déjà plus juste que l'ancien (avec remise) car l'intervale de gains ne va plus entre [Gain 1;infini[\n");
-        s.append("mais plutôt [Gain 1;nombre_élément_total[, avec une somme d'argent précise, on est capable d'obtenir tous les gains !\n");
+        s.append("Ce système (sans remise) est déjà plus juste que l'ancien (avec remise) car l'intervale de gains ne va plus entre [Gain 1 ; infini[\n");
+        s.append("mais plutôt [Gain 1 ; nombre_élément_total[, avec une somme d'argent précise, on est capable d'obtenir tous les gains !\n");
         s.append("Voyons à la page suivante comment suivre un certaine logique pour gagner le maximun de gains avec peu de dépenses !\n");
         s.append("Pour cela, lisez la page suivante !\n");
         s.append("\n");
@@ -220,24 +225,24 @@ public class EcouteurRenseignements implements EventHandler<ActionEvent> {
         s.append("25900 coins < 9000 * 3 = 150 $ --> c'est la façon la plus économique de tous obtenir en prenant en compte le prix avantageux de \n");
         s.append("certaines conversions.\n");
         s.append("\n");
-        s.append("Resituons, nous avons déduis qu'il était plus judicieux de récupérer tous les communs, moyens, rares et epics avec la \n");
+        s.append("Resituons, nous avons déduit qu'il était plus judicieux de récupérer tous les communs, moyens, rares et epics avec la \n");
         s.append("boite en bois, et ainsi, de pouvoir accéder à tous les légendaires avec la boite en métal, nous garantissant ainsi une dépense minimale\n");
         s.append("Mais ce sytème a ses limites, ce petit tour de passe-passe logique fonctionne que dans un système de lootbox à faible base de données\n");
         s.append("et dont les possibles gains de chaque lootbox sont repartis comme sur notre exemple\n");
         s.append("\n");
         s.append("Prenez le cas où la base de gains est IMMENSE, cela ne vaut pas le coup de dépenser une quantité astronomique d'argent pour pouvoir ensuite\n");
-        s.append("vous assurer les gains légendaires à bas prix. Les joueurs visent avant tous des objets précis, annoncé dans les publicités, dans des petites banières\n");
-        s.append("que le jeu, ou le site, a soigneusement placée pour alimenter notre faim de gains.\n");
+        s.append("vous assurer les gains légendaires à bas prix. Les joueurs visent avant tous des objets précis, annoncés dans les publicités, dans des petites banières\n");
+        s.append("que le jeu, ou le site, a soigneusement placé pour alimenter notre faim de gains.\n");
         s.append("\n");
         s.append("Les instances de jeux ont finit par améliorer leur système en octroyant des gains uniques et temporaires à certaines lootboxs, insitant les\n");
-        s.append("joueurs a se ruer sur une caisse precise pour espérer obenir un objet que peu auront.\n");
-        s.append("Ses évenements destabilisent les probabilités, les rendant plus flou, moins sensé.\n");
+        s.append("joueurs à se ruer sur une caisse précise pour espérer obtenir un objet que peu auront.\n");
+        s.append("Ses évenements destabilisent les probabilités, les rendant plus flous, moins sensés.\n");
         s.append("\n");
-        s.append("Conclusion : cette technique de 'partage de gains' dans un système de lootbox sans remise augmente les chances d'otenir un légendaire\n");
+        s.append("Conclusion : cette technique de 'partage de gains' dans un système de lootbox sans remise augmente les chances d'obtenir un légendaire\n");
         s.append("car les intervalles de gains ne tendent plus vers l'infini, mais plutot vers les limites du nombre d'éléments obtenables pour chaque lootbox\n");
         s.append("Cependant, même si un peu de logique peut nous aider, dans un système classique avec une base de données énorme, elle reste tres peu efficasse\n");
         s.append("\n");
-        s.append("On pourrait se demander si cette idée de lootbox sans remise est vraiment utile, ou juste de la poudre aux yeux\n");
+        s.append("On pourrait se demander si cette idée de lootbox (sans remise) est vraiment utile, ou juste de la poudre aux yeux\n");
         s.append("'Overwatch', un jeu populaire, a passé ses lootbox en mode 'sans remise', mais vu le nombre immense de gains possibles,\n");
         s.append("n'est-ce pas une tentative d'insiter les joueurs à tenter leur chance en leur promettant de meilleurs fausses probabilités ?\n");
         s.append("\n");

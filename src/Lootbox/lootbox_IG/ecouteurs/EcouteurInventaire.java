@@ -31,15 +31,20 @@ public class EcouteurInventaire implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         TabPane tabPane = new TabPane();
-        Tab commun = new Tab("Commun");
+        Tab commun = new Tab("          Commun        ");
+        commun.setClosable(false);
         commun.setStyle("-fx-background-color: green; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab moyen = new Tab("Moyen");
+        Tab moyen = new Tab("           Moyen          ");
+        moyen.setClosable(false);
         moyen.setStyle("-fx-background-color: yellow; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #000000;");
-        Tab rare = new Tab("Rare");
+        Tab rare = new Tab("            Rare            ");
+        rare.setClosable(false);
         rare.setStyle("-fx-background-color: red; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab epic = new Tab("Epic");
+        Tab epic = new Tab("            Epic            ");
+        epic.setClosable(false);
         epic.setStyle("-fx-background-color: blue; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
-        Tab legendaire = new Tab("Legendaire");
+        Tab legendaire = new Tab("          Legendaire          ");
+        legendaire.setClosable(false);
         legendaire.setStyle("-fx-background-color: purple; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         tabPane.getTabs().addAll(commun,moyen,rare,epic,legendaire);
         FlowPane f1 = new FlowPane();
@@ -113,6 +118,7 @@ public class EcouteurInventaire implements EventHandler<ActionEvent> {
         dialogStage.setScene(new Scene(tabPane, TailleComposants.getInstance().getLargeurEcran()/1.5, TailleComposants.getInstance().gethauteurEcran()/1.5));
         dialogStage.setTitle("Inventaire : par PETIT Brian et DUCHESNE Leila");
         dialogStage.show();
+        dialogStage.setResizable(false);
         dialogStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
         m.update();
     }

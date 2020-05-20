@@ -31,6 +31,7 @@ public class EcouteurJeuGeneral implements EventHandler<ActionEvent> {
         dialogStage.setScene(new Scene(module(), 600,500));
         dialogStage.setTitle("Jouer et gagner ! : par PETIT Brian et DUCHESNE Leila");
         dialogStage.show();
+        dialogStage.setResizable(false);
         dialogStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
     }
 

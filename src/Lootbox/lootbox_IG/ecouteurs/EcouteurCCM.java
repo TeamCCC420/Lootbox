@@ -24,6 +24,7 @@ public class EcouteurCCM implements EventHandler<ActionEvent> {
         dialogStage.setScene(new Scene(module(), 900,500));
         dialogStage.setTitle("Tutoriel : par PETIT Brian et DUCHESNE Leila");
         dialogStage.show();
+        dialogStage.setResizable(false);
         dialogStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icones/iconeAppli.png")));
     }
 
